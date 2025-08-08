@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Success Hub | Your Ultimate Guide</title>
+    <title>Student Success Hub | Excel in Your Studies</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* --- MODERN CSS RESET --- */
@@ -17,17 +17,18 @@
             box-sizing: border-box;
         }
 
-        /* --- CSS VARIABLES for a fresh, modern theme --- */
+        /* --- CSS VARIABLES: POLISHED & VIBRANT THEME --- */
         :root {
-            --primary-color-start: #6a11cb;
-            --primary-color-end: #2575fc;
-            --secondary-color: #f7f9fc;
-            --dark-text: #2c3e50;
-            --light-text: #576574;
+            --bg-start: #6D28D9; /* Deep Violet */
+            --bg-end: #4F46E5; /* Indigo */
+            --accent-color: #FBBF24; /* Amber */
+            --light-bg: #F8FAFC; /* Slate 50 */
+            --dark-text: #1E293B; /* Slate 800 */
+            --light-text: #64748B; /* Slate 500 */
             --white-color: #ffffff;
-            --accent-color: #ffc82c;
-            --shadow-color: rgba(44, 62, 80, 0.15);
-            --border-radius: 12px;
+            --border-color: #E2E8F0; /* Slate 200 */
+            --shadow-color: rgba(100, 116, 139, 0.12);
+            --border-radius: 16px;
             --transition-speed: 0.3s;
         }
 
@@ -36,28 +37,28 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.65;
             background-color: var(--white-color);
             color: var(--dark-text);
-            overflow-x: hidden; /* Prevents horizontal scroll from animations */
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 25px;
+            padding: 0 20px;
         }
 
         h1, h2, h3 {
-            font-family: 'Rubik', sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
+            font-weight: 700;
+            line-height: 1.2;
             color: var(--dark-text);
+            letter-spacing: -0.5px;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -65,31 +66,37 @@
         .section-subtitle {
             text-align: center;
             color: var(--light-text);
-            max-width: 600px;
-            margin: 0 auto 50px auto;
-            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 60px auto;
+            font-size: 1.125rem;
         }
 
         /* --- SCROLL-IN ANIMATION --- */
-        .fade-in-section {
+        .fade-in-section > * {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
-
-        .fade-in-section.is-visible {
+        .fade-in-section.is-visible > * {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- HEADER (WITH GLASSMORPHISM) & NAVIGATION --- */
         header {
-            background-color: var(--white-color);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px var(--shadow-color);
+            background-color: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: box-shadow var(--transition-speed) ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 4px 20px var(--shadow-color);
         }
 
         header .container {
@@ -99,55 +106,42 @@
         }
         
         .logo {
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color-start);
+            color: var(--bg-start);
             text-decoration: none;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         /* Desktop Navigation */
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--dark-text);
-            padding: 8px 16px;
+            padding: 8px 12px;
             font-weight: 600;
-            position: relative;
-            transition: color var(--transition-speed) ease;
+            border-radius: 8px;
+            transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
         }
         
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-image: linear-gradient(to right, var(--primary-color-start), var(--primary-color-end));
-            border-radius: 2px;
-            transition: width var(--transition-speed) ease;
-        }
-
         nav ul li a:hover {
-            color: var(--primary-color-start);
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            color: var(--bg-start);
+            background-color: #F1F5F9; /* Slate 100 */
         }
 
         /* Hamburger Menu Button */
         #hamburger-btn {
             display: none;
-            flex-direction: column;
-            justify-content: space-around;
             width: 30px;
             height: 25px;
             background: transparent;
@@ -162,318 +156,364 @@
             background-color: var(--dark-text);
             border-radius: 5px;
             transition: all 0.3s ease-in-out;
+            display: block;
+        }
+        #hamburger-btn .bar:not(:last-child) {
+            margin-bottom: 5px;
         }
         
-        #hamburger-btn.active .bar1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        #hamburger-btn.active .bar2 {
-            opacity: 0;
-        }
-        #hamburger-btn.active .bar3 {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
+        #hamburger-btn.active .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
+        #hamburger-btn.active .bar2 { opacity: 0; }
+        #hamburger-btn.active .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
 
         /* --- HERO SECTION --- */
         #hero {
-            background-image: linear-gradient(120deg, var(--primary-color-start), var(--primary-color-end));
+            background-image: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
             color: var(--white-color);
             text-align: center;
-            padding: 80px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 50vh;
+            padding: 100px 20px;
         }
 
         #hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: var(--white-color);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            letter-spacing: -1.5px;
         }
 
         #hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+            max-width: 750px;
+            margin: 0 auto 40px auto;
         }
 
         .cta-button {
             background-color: var(--accent-color);
             color: var(--dark-text);
-            padding: 15px 35px;
+            padding: 16px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.2);
         }
-
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
         }
 
         /* --- CONTENT SECTIONS & CARDS --- */
         .content-section {
-            padding: 80px 0;
-            background-color: var(--secondary-color);
-        }
-        .content-section:nth-of-type(odd) {
+            padding: 100px 0;
             background-color: var(--white-color);
+        }
+        .content-section:nth-of-type(even) {
+            background-color: var(--light-bg);
         }
         
         .section-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             margin: 0 auto 20px auto;
             display: block;
-            color: var(--primary-color-start);
+            background-image: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .card-container {
             display: grid;
-            grid-template-columns: 1fr; /* Mobile-first: single column */
+            grid-template-columns: 1fr;
             gap: 30px;
         }
-
+        
+        /* CARD GLOW EFFECT */
         .card {
             background-color: var(--white-color);
             border-radius: var(--border-radius);
-            box-shadow: 0 5px 25px var(--shadow-color);
-            padding: 30px;
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(109, 40, 217, 0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 35px var(--shadow-color);
+            box-shadow: 0 15px 35px var(--shadow-color);
+        }
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card h3 {
-            color: var(--dark-text);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
         }
 
         .card p {
-            flex-grow: 1; /* Allows text to take up space, pushing button down */
+            flex-grow: 1;
+            color: var(--light-text);
         }
 
         .card .button {
-            background-image: linear-gradient(to right, var(--primary-color-start), var(--primary-color-end));
+            background-image: linear-gradient(to right, var(--bg-start), var(--bg-end));
             color: var(--white-color);
             padding: 12px 25px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             display: inline-block;
             border: none;
         }
-
         .card .button:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(79, 70, 229, 0.4);
         }
+        
+        /* --- FINAL CTA SECTION --- */
+        #cta {
+            background-image: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        #cta h2, #cta p {
+            color: var(--white-color);
+        }
+        #cta p {
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
 
         /* --- FOOTER --- */
         footer {
             background-color: var(--dark-text);
-            color: var(--secondary-color);
+            color: var(--light-bg);
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
-
-        footer .logo {
-            color: var(--white-color);
-        }
+        footer .logo { color: var(--white-color); }
         
         .footer-links {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin: 20px 0;
+            gap: 30px;
+            margin: 25px 0;
         }
         
         .footer-links a {
-            color: var(--white-color);
+            color: #CBD5E1; /* Slate 300 */
             text-decoration: none;
-            font-weight: 500;
             transition: color var(--transition-speed) ease;
         }
+        .footer-links a:hover { color: var(--accent-color); }
+        footer p { font-size: 0.95rem; color: #94A3B8; /* Slate 400 */ }
         
-        .footer-links a:hover {
-            color: var(--accent-color);
+        /* --- BACK TO TOP BUTTON --- */
+        #back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background-image: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            color: var(--white-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(79, 70, 229, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+            z-index: 999;
         }
-
-        footer p {
-            font-size: 0.9rem;
-            color: var(--light-text);
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
-
+        #back-to-top svg { width: 24px; height: 24px; }
 
         /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem !important; }
-            h2 { font-size: 2rem; }
+        @media (max-width: 992px) {
+             h1 { font-size: 3rem !important; }
+             h2 { font-size: 2.25rem; }
+        }
 
-            #hamburger-btn { display: flex; }
-            nav { order: 3; } /* Push nav to the end */
-            .logo { order: 1; }
-            #hamburger-btn { order: 2; }
-            
-            nav ul {
-                display: flex;
-                flex-direction: column;
+        @media (max-width: 768px) {
+            #hamburger-btn { display: block; }
+            nav {
                 position: absolute;
-                top: 73px; /* Header height */
+                top: 85px; /* Adjusted Header height */
                 left: 0;
                 width: 100%;
                 background-color: var(--white-color);
-                box-shadow: 0 10px 10px -5px var(--shadow-color);
+                box-shadow: 0 10px 20px -5px var(--shadow-color);
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.4s ease-in-out;
             }
-
-            nav ul.show {
-                max-height: 500px; /* Animate open */
+            nav ul {
+                flex-direction: column;
+                padding: 10px 0;
+                gap: 0;
             }
-
+            nav.show {
+                max-height: 500px;
+            }
             nav ul li {
                 width: 100%;
                 text-align: center;
+            }
+             nav ul li a {
+                display: block;
                 padding: 15px 0;
-                border-bottom: 1px solid #f0f0f0;
+                border-radius: 0;
             }
-            nav ul li a::after { display: none; } /* Hide underline on mobile */
         }
         
-        /* Tablet card layout */
         @media (min-width: 600px) {
-            .card-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .card-container { grid-template-columns: repeat(2, 1fr); }
         }
-        
-        /* Desktop card layout */
         @media (min-width: 992px) {
-            .card-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .card-container { grid-template-columns: repeat(3, 1fr); }
         }
+
     </style>
 </head>
 <body>
 
-    <header>
+    <header id="header">
         <div class="container">
             <a href="#" class="logo">SuccessHub</a>
-            <nav>
-                <ul id="nav-links">
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#techniques">Techniques</a></li>
-                    <li><a href="#tools">Tools</a></li>
-                </ul>
-            </nav>
-            <button id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="bar bar1"></span>
-                <span class="bar bar2"></span>
-                <span class="bar bar3"></span>
-            </button>
+            <div class="nav-wrapper">
+                <nav id="navbar">
+                    <ul id="nav-links">
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#techniques">Techniques</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                    </ul>
+                </nav>
+                <button id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar bar1"></span>
+                    <span class="bar bar2"></span>
+                    <span class="bar bar3"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
         <section id="hero">
-            <div class="hero-content fade-in-section is-visible">
-                <h1>Unlock Your Full Potential</h1>
-                <p>Your central hub for top-tier study resources, proven learning techniques, and essential free tools to help you excel academically.</p>
-                <a href="#resources" class="cta-button">Explore Resources</a>
+            <div class="hero-content">
+                <h1>Master Your Studies, Achieve Your Goals</h1>
+                <p>The ultimate launchpad for students. Discover curated resources, powerful learning techniques, and essential tools—all in one place.</p>
+                <a href="#resources" class="cta-button">Start Exploring</a>
             </div>
         </section>
 
-        <section id="resources" class="content-section fade-in-section">
-            <div class="container">
+        <section id="resources" class="content-section">
+            <div class="container fade-in-section">
                 <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-                <h2>Curated Online Resources</h2>
-                <p class="section-subtitle">Handpicked platforms to supplement your learning, from comprehensive courses to quick-fire flashcards.</p>
+                <h2>Top-Tier Learning Resources</h2>
+                <p class="section-subtitle">Go beyond the textbook. These handpicked platforms provide world-class materials to deepen your understanding.</p>
                 <div class="card-container">
                     <article class="card">
                         <h3>Khan Academy</h3>
-                        <p>A non-profit with a mission to provide a free, world-class education for anyone, anywhere. Fantastic for math, science, and more.</p>
+                        <p>A goldmine of free lessons on almost any subject imaginable. Perfect for clearing up confusion or exploring new topics.</p>
                         <a href="https://www.khanacademy.org/" target="_blank" class="button">Visit Site</a>
                     </article>
                     <article class="card">
                         <h3>Coursera</h3>
-                        <p>Learn from experts at top universities. Access thousands of online courses, specializations, and professional certificates.</p>
+                        <p>Access courses and professional certificates from leading universities and companies like Google, Meta, and IBM.</p>
                         <a href="https://www.coursera.org/" target="_blank" class="button">Explore Courses</a>
                     </article>
                     <article class="card">
                         <h3>Quizlet</h3>
-                        <p>The ultimate tool for memorization. Create your own flashcards or choose from millions created by other students.</p>
+                        <p>The king of digital flashcards. Use spaced repetition and active recall to memorize facts and vocabulary with incredible efficiency.</p>
                         <a href="https://quizlet.com/" target="_blank" class="button">Start Studying</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="techniques" class="content-section fade-in-section">
-            <div class="container">
+        <section id="techniques" class="content-section">
+            <div class="container fade-in-section">
                 <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624L16.5 21.75l-.398-1.126a3.375 3.375 0 00-2.456-2.456L12.75 18l1.126-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.126a3.375 3.375 0 002.456 2.456L20.25 18l-1.126.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
-                <h2>Smarter Study Techniques</h2>
-                <p class="section-subtitle">It's not about studying harder, it's about studying smarter. Master these methods to improve retention and understanding.</p>
+                <h2>Evidence-Based Study Techniques</h2>
+                <p class="section-subtitle">Stop wasting time with inefficient methods. These scientifically-backed techniques will revolutionize how you learn.</p>
                  <div class="card-container">
                     <article class="card">
                         <h3>The Pomodoro Technique</h3>
-                        <p>Boost your focus by working in 25-minute sprints separated by short breaks. This prevents burnout and keeps your mind fresh.</p>
+                        <p>Work in hyper-focused 25-minute blocks. This simple timer-based system is proven to enhance concentration and prevent mental fatigue.</p>
                         <a href="https://francescocirillo.com/pages/pomodoro-technique" target="_blank" class="button">Learn More</a>
                     </article>
                     <article class="card">
                         <h3>The Feynman Technique</h3>
-                        <p>The ultimate test of knowledge: can you explain a complex topic in simple terms? This method quickly reveals what you don't know.</p>
+                        <p>Can you explain a topic simply? This powerful mental model forces you to truly understand concepts by teaching them to an imaginary beginner.</p>
                          <a href="https://fs.blog/feynman-technique/" target="_blank" class="button">Master It</a>
                     </article>
                      <article class="card">
                         <h3>Active Recall</h3>
-                        <p>Ditch passive rereading. Actively retrieve information from memory to build stronger neural connections for long-term recall.</p>
-                         <a href="http://googleusercontent.com/youtube.com/3" target="_blank" class="button">Watch a Demo</a>
+                        <p>The #1 most effective learning strategy. Actively retrieve information from memory instead of passively rereading it to build lasting knowledge.</p>
+                         <a href="http://googleusercontent.com/youtube.com/4" target="_blank" class="button">Watch a Demo</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="tools" class="content-section fade-in-section">
-            <div class="container">
+        <section id="tools" class="content-section">
+            <div class="container fade-in-section">
                 <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.472-2.472a3.375 3.375 0 00-4.773-4.773L6.75 15.75l-2.472-2.472a3.375 3.375 0 00-4.773 4.773L5.25 21H8.25l6.32-6.32z" /></svg>
-                <h2>Essential Student Tools</h2>
-                <p class="section-subtitle">Streamline your workflow with these powerful (and free!) tools for research, citation, and organization.</p>
+                <h2>Your Digital Toolkit</h2>
+                <p class="section-subtitle">Work smarter, not harder. These indispensable apps and websites will streamline your research, writing, and organization.</p>
                  <div class="card-container">
                     <article class="card">
                         <h3>Google Scholar</h3>
-                        <p>Your gateway to academic literature. Quickly search for scholarly articles, theses, books, and court opinions from one convenient place.</p>
+                        <p>Your portal to the world of academic research. Instantly search across countless disciplines for papers, theses, and books.</p>
                         <a href="https://scholar.google.com/" target="_blank" class="button">Start Research</a>
                     </article>
                     <article class="card">
                         <h3>Zotero</h3>
-                        <p>A free, easy-to-use tool to help you collect, organize, cite, and share your research sources. Say goodbye to citation headaches.</p>
+                        <p>Your personal research assistant. Effortlessly collect sources, manage citations, and generate bibliographies in any format.</p>
                          <a href="https://www.zotero.org/" target="_blank" class="button">Get Zotero</a>
                     </article>
                      <article class="card">
                         <h3>Notion</h3>
-                        <p>The all-in-one workspace. Take notes, manage projects, and organize your life. It's a game-changer for staying on top of your classes.</p>
+                        <p>The all-in-one "second brain." Take notes, manage complex projects, and build a personal knowledge base that works for you.</p>
                          <a href="https://www.notion.so/" target="_blank" class="button">Try Notion</a>
                     </article>
                 </div>
+            </div>
+        </section>
+        
+        <section id="cta" class="fade-in-section">
+            <div class="container">
+                <h2>Ready to Elevate Your Learning?</h2>
+                <p class="section-subtitle">The best time to start building better habits was yesterday. The second best time is now.</p>
+                <a href="#" class="cta-button">Back to Top</a>
             </div>
         </section>
     </main>
@@ -486,53 +526,89 @@
                 <li><a href="#techniques">Techniques</a></li>
                 <li><a href="#tools">Tools</a></li>
             </ul>
-            <p>© 2025 Student Success Hub. Designed to help you thrive.</p>
+            <p>Designed in Rodriguez, Philippines &bull; Helping students worldwide since 2025.</p>
         </div>
     </footer>
+    
+    <a href="#" id="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </a>
 
     <script>
-        // --- Hamburger Menu Logic ---
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const navLinks = document.getElementById('nav-links');
-        const navLinkItems = document.querySelectorAll('#nav-links li a');
+        document.addEventListener('DOMContentLoaded', () => {
 
-        hamburgerBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-            hamburgerBtn.classList.toggle('active');
-            const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
-            hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
-        });
+            // --- HAMBURGER MENU LOGIC ---
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('#nav-links li a');
 
-        // Close menu when a link is clicked (for mobile)
-        navLinkItems.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    hamburgerBtn.classList.remove('active');
-                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+            hamburgerBtn.addEventListener('click', () => {
+                navbar.classList.toggle('show');
+                hamburgerBtn.classList.toggle('active');
+                hamburgerBtn.setAttribute('aria-expanded', navbar.classList.contains('show'));
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbar.classList.contains('show')) {
+                        navbar.classList.remove('show');
+                        hamburgerBtn.classList.remove('active');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // --- HEADER SCROLL EFFECT ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- FADE-IN SECTION & STAGGERED CARD ANIMATION ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        const cards = entry.target.querySelectorAll('.card');
+                        cards.forEach((card, index) => {
+                            card.style.transitionDelay = `${index * 100}ms`;
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, threshold: 0.1 });
+            sections.forEach(section => sectionObserver.observe(section));
+            
+            // --- CARD GLOW EFFECT ---
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--x', `${x}px`);
+                    card.style.setProperty('--y', `${y}px`);
+                });
+            });
+
+            // --- BACK TO TOP BUTTON ---
+            const backToTopBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
                 }
             });
         });
-        
-        // --- Scroll Animation Logic ---
-        const fadeInSections = document.querySelectorAll('.fade-in-section');
-
-        const sectionObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.15 // Section becomes visible when 15% is in view
-        });
-
-        fadeInSections.forEach(section => {
-            sectionObserver.observe(section);
-        });
-
     </script>
+
 </body>
 </html>
